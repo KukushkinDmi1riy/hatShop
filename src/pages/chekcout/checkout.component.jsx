@@ -8,43 +8,44 @@ import StripeCheckoutButton from '../../components/stripe-button/stripe-button.c
 import { selectCartItems, selectCartTotal} from '../../redux/cart/cart.selectors'
 
 import './checkout.styles.scss';
+import {CheckoutPageContainer, CheckoutHeaderContainer, HeaderBlockContainer, TotalContainer, WarningContainer} from './checkout.styles'
 
 const CheckoutPage = ({ cartItems, total }) => {
     return(
-        <div className="checkout-page">
-            <div className="checkout-header">
-                <div className='header-block'>
+        <CheckoutPageContainer>
+            <CheckoutHeaderContainer>
+                <HeaderBlockContainer>
                     <span>
                         Product
                     </span>
-                </div>
+                </HeaderBlockContainer>
 
-                <div className='header-block'>
+                <HeaderBlockContainer>
                     <span>
                         Description
                     </span>
-                </div>
+                </HeaderBlockContainer>
 
-                <div className='header-block'>
+                <HeaderBlockContainer>
                     <span>
                         Quantity
                     </span>
-                </div>
+                </HeaderBlockContainer>
 
-                <div className='header-block'>
+                <HeaderBlockContainer>
                     <span>
                         Price
                     </span>
-                </div>
+                </HeaderBlockContainer>
 
-                <div className='header-block'>
+                <HeaderBlockContainer>
                     <span>
                         Remove
                     </span>
-                </div>
+                </HeaderBlockContainer>
 
 
-            </div>
+            </CheckoutHeaderContainer>
 
             {
                 cartItems.map((cartItem)=>(
@@ -52,21 +53,21 @@ const CheckoutPage = ({ cartItems, total }) => {
                 ))
             }
 
-            <div className="total">   
+            <TotalContainer>   
                 TOTAL: ${total}
-            </div>
+            </TotalContainer>
 
-            <div className="stripe-warning">
+            <WarningContainer>
                 *Please use the following test credit cart for payments*
                 <br/>
                 4242 4242 4242 4242
                 <br/>
                 Use current month, e.x.  - 02/21 and CVV - 123
             
-            </div>
+            </WarningContainer>
 
             <StripeCheckoutButton price={total}/>
-        </div>
+        </CheckoutPageContainer>
     )
 }
 
