@@ -2,7 +2,6 @@ import React from 'react';
 import { connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect';
 
-import { auth } from '../../firebase/firebase.utils';
 import { selectCurrentUser} from '../../redux/user/user.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 
